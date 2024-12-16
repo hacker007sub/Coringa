@@ -1,0 +1,171 @@
+<html>
+<head>
+<base href="">
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1a1a1a;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 400px;
+        background-color: #333;
+        border-radius: 10px;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .title {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 5px;
+        margin: 20px 0;
+    }
+
+    .cell {
+        width: 50px;
+        height: 50px;
+        background-color: #1a1a1a;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 24px;
+        color: #ffd700;
+    }
+
+    .details {
+        font-size: 14px;
+        color: #bbb;
+        margin-top: 10px;
+    }
+
+    #timer {
+        color: #ff4444;
+        font-weight: bold;
+    }
+
+    .status-message {
+        font-size: 18px;
+        color: #00ff00;
+        margin: 10px 0;
+        display: none;
+    }
+
+    .control-panel {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .control-button {
+        background-color: #ffd700;
+        color: #333;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    .control-button.hidden {
+        opacity: 0;
+        pointer-events: none;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <div class="title">💰 ANONIMO💰</div>
+    <div id="statusMessage" class="status-message">Analisando Entrada...</div>
+    <div class="grid" id="grid"></div>
+    <div class="details">
+        Máximo: 3 Tentativas.<br>
+        
+        💣 𝗔𝗽𝗼𝘀𝘁𝗲: 3 𝗠𝗶𝗻𝗮𝘀.<br>
+        Validade: <span id="timer">01:00</span>
+    </div>
+    <div class="control-panel">
+        <button id="signalButton" class="control-button" onclick="generateSignal()">INDENTIFICAR SINAL</button>
+    </div>
+</div>
+
+<script>
+function generateGrid() {
+    const gridSize = 5;
+    const totalCells = gridSize * gridSize;
+    const numDiamonds = 4;
+    
+    let gridElement = document.getElementById("grid");
+    gridElement.innerHTML = "";
+
+    // Cria array com células vazias
+    let cells = new Array(totalCells).fill('🟨');
+
+    // Posiciona diamantes aleatoriamente
+    for(let i = 0; i < numDiamonds; i++) {
+        let position;
+        do {
+            position = Math.floor(Math.random() * totalCells);
+        } while(cells[position] === '💎');
+        cells[position] = '💎';
+    }
+    
+    // Exibe a grade
+    cells.forEach(cell => {
+        let cellElement = document.createElement("div");
+        cellElement.className = "cell";
+        cellElement.textContent = cell;
+        gridElement.appendChild(cellElement);
+    });
+}
+
+function startTimer(duration) {
+    let timeLeft = duration;
+    const timerElement = document.getElementById('timer');
+    
+    const timer = setInterval(() => {
+        const minutes = Math.floor(timeLeft / 60);
+        const seconds = timeLeft % 60;
+        
+        timerElement.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        
+        if (timeLeft <= 0) {
+            clearInterval(timer);
+            document.getElementById("signalButton").classList.remove("hidden"); // Exibe botão após 60 segundos
+            document.getElementById("statusMessage").style.display = "none"; // Oculta mensagem de status
+        }
+        timeLeft--;
+    }, 1000);
+}
+
+function generateSignal() {
+    document.getElementById("signalButton").classList.add("hidden"); // Oculta botão
+    document.getElementById("statusMessage").style.display = "block"; // Exibe mensagem "Analisando Entrada..."
+    document.getElementById("statusMessage").textContent = "Analisando Entrada...";
+
+    // Atraso de 5 segundos para simular análise
+    setTimeout(() => {
+        document.getElementById("statusMessage").textContent = "Entrada Confirmada!";
+        generateGrid(); // Gera grade com diamantes
+        startTimer(60); // Inicia o temporizador de 60 segundos
+    }, 5000); // Atraso de 5 segundos antes de exibir "Entrada Confirmada!"
+}
+
+// Inicia sinal inicial ao carregar a página
+document.addEventListener('DOMContentLoaded', generateSignal);
+</script>
+</body>
+</html>

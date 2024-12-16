@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interface Futurística</title>
+
+    <!-- Adicionando o ícone da página -->
+    <link rel="icon" href="favicon.jpg" type="image/x-icon">
+
+    <style>
+        /* Estilo geral */
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(130deg, #0f2027, #203a43, #2c5364);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Container principal */
+        .container {
+            text-align: center;
+            width: 90%;
+            max-width: 800px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #00e6e6;
+            text-shadow: 0 0 15px #00e6e6, 0 0 25px #00e6e6;
+            margin-bottom: 20px;
+        }
+
+        .bot-options {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .bot-button {
+            background: linear-gradient(45deg, #0f2027, #00e6e6);
+            color: #fff;
+            font-size: 1rem;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.5), inset 0 0 10px rgba(0, 255, 255, 0.3);
+            transition: transform 0.2s, box-shadow 0.3s;
+        }
+
+        .bot-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 25px rgba(0, 255, 255, 0.8), inset 0 0 15px rgba(0, 255, 255, 0.5);
+        }
+
+        footer {
+            margin-top: 30px;
+            font-size: 0.9rem;
+            color: #999;
+        }
+
+        footer a {
+            color: #00e6e6;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Modal */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .modal.show {
+            display: flex;
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: #1a1a1a;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+            max-width: 500px;
+        }
+
+        .modal-content h2 {
+            color: #00e6e6;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .modal-content p {
+            font-size: 1rem;
+            color: #cce7e7;
+            margin-bottom: 20px;
+        }
+
+        .modal-content button {
+            background: linear-gradient(45deg, #0f2027, #00e6e6);
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+            transition: background 0.3s, box-shadow 0.3s;
+            margin: 10px;
+        }
+
+        .modal-content button:hover {
+            background: #00e6e6;
+            box-shadow: 0 0 25px rgba(0, 255, 255, 0.8);
+        }
+
+        /* Botão WhatsApp */
+        .whatsapp-button {
+            background-color: #25D366;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+            transition: background 0.3s, box-shadow 0.3s;
+            margin-top: 20px;
+        }
+
+        .whatsapp-button:hover {
+            background-color: #128C7E;
+            box-shadow: 0 0 25px rgba(0, 255, 255, 0.8);
+        }
+
+        @media (max-width: 600px) {
+            .modal-content {
+                width: 90%;
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .bot-button {
+                font-size: 0.9rem;
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Modal Inicial -->
+    <div class="modal" id="modal" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+        <div class="modal-content">
+            <h2 id="modalTitle">Dinheiro em Jogo 🚀</h2>
+            <p>Quer começar a ganhar de 2.000.MT a 10.000MT no jogo de Aviator, sem esforço?</p>
+            <p>
+                Clique no botão abaixo para começar a usar nosso bot, que funciona 24 horas por dia!<br><br>
+                <strong>Atenção:</strong> Crie sua conta AGORA enquanto está no bot para garantir os melhores resultados. 
+                Para quem já tem conta, recomendamos fortemente criar uma nova conta. Isso vai aumentar a precisão dos sinais 
+                para impressionantes <span style="color: #00e6e6; font-weight: bold;">98%</span>, potencializando seus ganhos desde o início!<br><br>
+                Aproveite o bônus exclusivo no seu primeiro depósito e compartilhe essa oportunidade única com seus familiares e amigos para que todos possam ganhar também!
+            </p>
+            <div>
+                <button onclick="closeModal()">Começar Agora</button>
+                <button onclick="createAccount()">Criar Conta</button>
+                <!-- Botão WhatsApp -->
+                <a href="https://whatsapp.com/channel/0029Vahelv30LKZ5gOngfh2U" target="_blank">
+                    <button class="whatsapp-button">Como usar!</button>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Página principal -->
+    <div class="container">
+        <h1>Bem-vindo ao Sistema Futurístico</h1>
+        <p>Escolha um bot para interagir:</p>
+        <div class="bot-options">
+            <button class="bot-button" onclick="openBotModal('mines')">MINAS</button>
+            <button class="bot-button" onclick="openBotModal('stellabot')">STELLA V8</button>
+            <button class="bot-button" onclick="openBotModal('botjorge')">BOT JORGE</button>
+            <button class="bot-button" onclick="openBotModal('crack')">CRACKER V1.0</button>
+        </div>
+        <footer>
+            <p>Desenvolvido por <a href="#">Seu Nome</a></p>
+        </footer>
+    </div>
+
+    <!-- Modais dos Bots -->
+    <div class="modal" id="mines-modal" role="dialog">
+        <div class="modal-content">
+            <h2>Casas de Apostas - MINAS</h2>
+            <button onclick="location.href='mines.html'">ELEPHANT BET MOZ</button>
+            <button onclick="location.href='mines.html'">PLACARD MZ</button>
+            <button onclick="location.href='mines.html'">ELEPHANT BET ANGOLA</button>
+            <button onclick="location.href='mines.html'">OLÁ BET</button>
+            <button onclick="location.href='mines.html'">WINNER.MZ</button>
+            <button onclick="location.href='mines.html'">1XBET.MZ</button>
+            <button onclick="closeBotModal()">Fechar</button>
+        </div>
+    </div>
+
+    <div class="modal" id="stellabot-modal" role="dialog">
+        <div class="modal-content">
+            <h2>Casas de Apostas - STELLA V8</h2>
+            <button onclick="location.href='stellabot.html'">ELEPHANT BET MOZ</button>
+            <button onclick="location.href='stellabot.html'">PLACARD MZ</button>
+            <button onclick="location.href='stellabot.html'">ELEPHANT BET ANGOLA</button>
+            <button onclick="location.href='stellabot.html'">OLA BET</button>
+            <button onclick="location.href='stellabot.html'">WINNER.MZ</button>
+            <button onclick="location.href='stellabot.html'">1XBET.MZ</button>
+            <button onclick="closeBotModal()">Fechar</button>
+        </div>
+    </div>
+
+    <div class="modal" id="botjorge-modal" role="dialog">
+        <div class="modal-content">
+            <h2>Casas de Apostas - BOT JORGE</h2>
+            <button onclick="location.href='botjorge.html'">ELEPHANT BET MOZ</button>
+            <button onclick="location.href='botjorge.html'">PLACARD MZ</button>
+            <button onclick="location.href='botjorge.html'">ELEPHANT BET ANGOLA</button>
+            <button onclick="location.href='botjorge.html'">OLA BET</button>
+            <button onclick="location.href='botjorge.html'">WINNER.MZ</button>
+            <button onclick="location.href='botjorge.html'">1XBET.MZ</button>
+            <button onclick="closeBotModal()">Fechar</button>
+        </div>
+    </div>
+
+    <div class="modal" id="crack-modal" role="dialog">
+        <div class="modal-content">
+            <h2>Casas de Apostas - CRACKER V1.0</h2>
+            <button onclick="location.href='crack.html'">ELEPHANT BET MOZ</button>
+            <button onclick="location.href='crack.html'">PLACARD MZ</button>
+            <button onclick="location.href='crack.html'">ELEPHANT BET ANGOLA</button>
+            <button onclick="location.href='crack.html'">OLA BET</button>
+            <button onclick="location.href='crack.html'">WINNER.MZ</button>
+            <button onclick="location.href='crack.html'">1XBET.MZ</button>
+            <button onclick="closeBotModal()">Fechar</button>
+        </div>
+    </div>
+
+    <script>
+        // Função para abrir o modal de cada bot
+        function openBotModal(botName) {
+            const modal = document.getElementById(botName + '-modal');
+            if (modal) {
+                modal.style.display = 'flex';
+                modal.classList.add('show');
+            }
+        }
+
+        // Função para fechar qualquer modal de bot
+        function closeBotModal() {
+            const modals = document.querySelectorAll('.modal');
+            modals.forEach(modal => modal.style.display = 'none');
+            modals.forEach(modal => modal.classList.remove('show'));
+        }
+
+        // Função para fechar o modal inicial
+        function closeModal() {
+            const modal = document.getElementById('modal');
+            modal.classList.remove('show');
+            setTimeout(() => modal.style.display = 'none', 500);
+        }
+
+        // Função para redirecionar ao criar conta
+        function createAccount() {
+            window.location.href = 'index.html';
+        }
+
+        // Exibe o modal inicial ao carregar a página
+        window.onload = function () {
+            const modal = document.getElementById('modal');
+            modal.style.display = 'flex';
+            setTimeout(() => modal.classList.add('show'), 100);
+        };
+
+        // Fecha o modal inicial ao clicar fora dele
+        document.addEventListener('click', (e) => {
+            const modal = document.getElementById('modal');
+            if (e.target === modal) closeModal();
+        });
+    </script>
+</body>
+</html>

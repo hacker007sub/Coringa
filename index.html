@@ -1,74 +1,212 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tela de Login</title>
+    <title>PRIME ODDS</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            background-color: #f4f4f4;
             margin: 0;
+            padding: 0;
         }
-        .login-container {
-            background-color: #fff;
-            padding: 20px 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            width: 300px;
+        header {
+            background-color: #000;
+            color: #fff;
+            padding: 20px;
             text-align: center;
         }
-        .login-container h1 {
+        header h1 {
+            margin: 0;
+        }
+        nav {
+            background-color: #00a859;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .container {
+            padding: 20px;
+        }
+        .card {
+            background: #fff;
             margin-bottom: 20px;
-            font-size: 24px;
-            color: #333;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
         }
-        .login-container input {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 16px;
+        .card h3 {
+            margin-top: 0;
         }
-        .login-container button {
-            width: 100%;
-            padding: 10px;
-            background-color: #007BFF;
-            border: none;
+        .card a {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #00a859;
+            color: #fff;
+            text-decoration: none;
             border-radius: 5px;
+        }
+        .card a:hover {
+            background-color: #007a43;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #000;
+            color: #fff;
+            margin-top: 20px;
+        }
+        .image-container {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .text-box {
+            background-color: #f0f0f0;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .whatsapp-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25D366;
             color: white;
-            font-size: 16px;
-            cursor: pointer;
-        }
-        .login-container button:hover {
-            background-color: #0056b3;
-        }
-        .login-container a {
-            display: block;
-            margin-top: 15px;
-            font-size: 14px;
-            color: #007BFF;
+            padding: 10px 20px;
+            border-radius: 50px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
             text-decoration: none;
         }
-        .login-container a:hover {
-            text-decoration: underline;
+        .whatsapp-button img {
+            width: 24px;
+            margin-right: 10px;
+        }
+        .long-message {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-top: 40px;
+        }
+        .long-message h2 {
+            margin-top: 0;
+            text-align: center;
+            color: #00a859;
+        }
+        .long-message ul {
+            padding-left: 20px;
+        }
+        .long-message li {
+            margin-bottom: 10px;
         }
     </style>
 </head>
 <body>
-    <div class="login-container">
-        <h1>Login</h1>
-        <form action="/login" method="POST">
-            <input type="text" name="username" placeholder="Usuário" required>
-            <input type="password" name="password" placeholder="Senha" required>
-            <button type="submit">Entrar</button>
-        </form>
-        <a href="#">Esqueceu a senha?</a>
+    <header>
+        <h1>PRIME ODDS</h1>
+    </header>
+    <nav>
+        <a href="#">Home</a>
+        <a href="opções.html">Bot Aviator</a>
+        <a href="tela2.html" target="_blank">Cursos Grátis</a>
+    </nav>
+    <div class="container">
+        <div class="text-box">
+            <h2>Melhores casas 2024/2025 para faturas</h2>
+            <p>Aproveita os Bônus Exclusivos!<br>
+            Cria uma nova conta em uma das casas listadas abaixo e desfruta dos bônus incríveis que cada uma oferece.
+            <br><br>
+            ⚠️ Nota Importante:<br>
+            Caso já tenhas uma conta, recomendamos que registres uma nova conta utilizando um cartão diferente, ou então cria uma conta em uma casa onde ainda não estejas registado.</p>
+        </div>
+
+        <!-- Cards com casas de apostas -->
+        <div class="card">
+            <h3>Placard</h3>
+            <p>Bônus até: 5000MT Pacote de boas-vindas. Somente novos clientes. 300% baseado em bônus de correspondência.</p>
+            <div class="image-container">
+                <img src="placard.png" alt="Imagem Placard" width="200px">
+            </div>
+            <a href="https://media1.placard.co.mz/redirect.aspx?pid=3338&bid=1713" target="_blank">Abrir Conta</a>
+        </div>
+
+        <div class="card">
+            <h3>Elefante Bet</h3>
+            <p>Bônus até: 10.000MT Pacote de boas-vindas. Somente novos clientes. 300% baseado em bônus de correspondência.</p>
+            <div class="image-container">
+                <img src="elephantmz.png" alt="Imagem Elefante Bet" width="200px">
+            </div>
+            <a href="https://record.elephantbet.com/_cFX5YrqybEEWqcfzuvZcQGNd7ZgqdRLk/1/" target="_blank">Abrir Conta</a>
+        </div>
+
+        <div class="card">
+            <h3>Elefante Bet Angola</h3>
+            <p>Bônus até: 100.0000kz Pacote de boas-vindas. Somente novos clientes. 300% baseado em bônus de correspondência.</p>
+            <div class="image-container">
+                <img src="elephantan.png" alt="Imagem Elefante Bet Angola" width="200px">
+            </div>
+            <a href="https://record.elephantbet.com/_cFX5YrqybEH6PBA04iUMN2Nd7ZgqdRLk/1/" target="_blank">Abrir Conta</a>
+        </div>
+
+        <div class="card">
+            <h3>Olabet</h3>
+            <p>Ganhe Bónus de Boas-vindas de 200% do valor Depositado.</p>
+            <div class="image-container">
+                <img src="winer.png" alt="Imagem Olabet" width="200px">
+            </div>
+            <a href="https://tracking.olabet.co.mz/C.ashx?btag=a_162b_7c_&affid=161&siteid=162&adid=7&c=" target="_blank">Abrir Conta</a>
+        </div>
+
+        <div class="card">
+            <h3>Winner</h3>
+            <p>Está chovendo apostas grátis de 20.000MT no aviator todos os dias.</p>
+            <div class="image-container">
+                <img src="winn.png" alt="Imagem Winner" width="200px">
+            </div>
+            <a href="https://track.africabetpartners.com/visit/?bta=37129&brand=winner" target="_blank">Abrir Conta</a>
+        </div>
+
+        <div class="card">
+            <h3>1Xbet - A Casa do Futebol</h3>
+            <p>Bônus até: 17.160MT Pacote de boas-vindas. Somente novos clientes. 200% baseado em bônus de correspondência.</p>
+            <div class="image-container">
+                <img src="1xbet.png" alt="Imagem 1Xbet" width="200px">
+            </div>
+            <a href="https://1xlite-488389.top?bf=655b1c316ddb1_5250251461" target="_blank">Abrir Conta</a>
+        </div>
+
+        <!-- Mensagem Longa de Como Lucrar com Apostas em Moçambique -->
+        <div class="long-message">
+            <h2>Como Lucrar com Apostas em Moçambique?</h2>
+            <p>Ganhar dinheiro com apostas esportivas exige estratégia e conhecimento. Aqui estão os principais passos para começar:</p>
+            <ul>
+                <li><strong>1. Entenda as Odds:</strong> As odds refletem as chances de um resultado específico e o valor que você pode ganhar. Quanto mais familiarizado estiver com elas, melhor será sua capacidade de avaliar as oportunidades.</li>
+                <li><strong>2. Encontre Apostas de Valor:</strong> Procure por apostas que ofereçam boas chances de superar a casa. Apostas com valor aumentam o potencial de lucro, por isso é importante analisar as opções com calma.</li>
+                <li><strong>3. Gerencie sua Banca:</strong> Sua banca é o dinheiro reservado para as apostas. Defina um limite, controle os gastos e evite apostas impulsivas para evitar perdas significativas.</li>
+                <li><strong>4. Cuide da Sua Emoção:</strong> Manter a cabeça fria é essencial. Aposte com base na lógica e não nas emoções. Evite agir por impulso após derrotas e nunca tente recuperar perdas rapidamente.</li>
+                <li><strong>5. Seja Realista e Consistente:</strong> O sucesso em apostas leva tempo. Mantenha-se realista e consistente com suas apostas para construir uma boa estratégia ao longo do tempo.</li>
+            </ul>
+        </div>
     </div>
+
+    <!-- Botão de Suporte via WhatsApp -->
+    <a href="https://api.whatsapp.com/send?phone=+258844096731&text=★᭄~%20ᵒOiê%20⚠️_ajudeme🔥🪀%20⚠️⃤%20ᵉˢᵗᵒᵘ%20ˢᵃˡᵛ" target="_blank" class="whatsapp-button">
+        <img src="WhatsApp.png" alt="WhatsApp">
+        <span>Suporte via WhatsApp</span>
+    </a>
+
+    <footer>
+        <p>&copy; 2024 PRIME ODDS. Todos os direitos reservados.</p>
+    </footer>
 </body>
 </html>
